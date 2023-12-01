@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:8000'
+axios.defaults.baseURL = 'https://lc-python-backend-b63f70e42fc6.herokuapp.com/'
 
 function Profile() {
   const [newUsername, setNewUsername] = useState('');
