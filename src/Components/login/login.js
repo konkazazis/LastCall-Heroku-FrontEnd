@@ -10,7 +10,7 @@ import '../../App.css';
 import 'animate.css';
 import App from '../../App';
 
-axios.defaults.baseURL = 'http://lc-python-backend-b63f70e42fc6.herokuapp.com/'
+axios.defaults.baseURL = 'https://lc-python-backend-b63f70e42fc6.herokuapp.com/'
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 axios.defaults.withCredentials = true;
