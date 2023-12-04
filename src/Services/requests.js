@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_URL = 'https://lc-python-backend-b63f70e42fc6.herokuapp.com/api'; // Update with your API URL
+const API_URL = 'http://16.171.237.119:8000/api'; // Update with your API URL
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
