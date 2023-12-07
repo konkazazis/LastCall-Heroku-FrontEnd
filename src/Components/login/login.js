@@ -68,6 +68,9 @@ setTimeout(() => {
         {
           email: email,
           password: password
+        },
+        {
+          withCredentials: true, 
         }
       ).then(function(res) {
         setCurrentUser(true);
