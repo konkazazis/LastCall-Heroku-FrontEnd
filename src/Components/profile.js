@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://16.171.237.119:8000/';
+axios.defaults.baseURL = 'https://lc-backend-django-2e9aca49847c.herokuapp.com/';
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'; 
