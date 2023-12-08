@@ -13,7 +13,6 @@ import App from '../../App';
 axios.defaults.baseURL = 'https://lc-backend-django-2e9aca49847c.herokuapp.com/';
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'; 
 axios.defaults.withCredentials = true;
 
 function LogIn() {

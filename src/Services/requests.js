@@ -3,7 +3,6 @@ const API_URL = 'https://lc-backend-django-2e9aca49847c.herokuapp.com/api'; // U
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'; 
 axios.defaults.withCredentials = true;
 
 // Function to send a GET request to fetch expenses
