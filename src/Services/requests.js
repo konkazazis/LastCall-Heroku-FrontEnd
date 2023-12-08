@@ -7,7 +7,11 @@ axios.defaults.withCredentials = true;
 
 // Function to send a GET request to fetch expenses
 export const getExpenses = () => {
-  return axios.get(`${API_URL}/expense-get/`)
+  return axios.get(`${API_URL}/expense-get/`,
+  {
+    withCredentials: true, 
+  }
+)
     .then((response) => {
       return response.data;
     })
