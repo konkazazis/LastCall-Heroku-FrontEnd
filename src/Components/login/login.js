@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.css';
 import 'animate.css';
 import App from '../../App';
+import LastCall from '../../assets/LastCall-removebg.png';
 
 axios.defaults.baseURL = 'https://lc-backend-django-2e9aca49847c.herokuapp.com/';
 axios.defaults.xsrfCookieName = 'csrftoken';
@@ -126,8 +127,7 @@ setTimeout(() => {
       <Navbar className='h-12 bg-slate-300'>
         <Container>
           <Navbar.Toggle />
-          <Navbar.Collapse className=" justify-between animate__animated animate__fadeIn">
-            <Navbar.Brand href="#home">LastCall</Navbar.Brand> 
+          <Navbar.Collapse className=" justify-between animate__animated animate__fadeIn"> 
             <Navbar.Text>
               <span className='box-border text-black hover:border-b-2 border-transparent hover:border-black hover:transition duration-200 hover:ease-in-out cursor-pointer'>
                 <button onClick={loadLogin}>Login</button>
@@ -143,7 +143,9 @@ setTimeout(() => {
     {
       registrationToggle ? (
         <div className='flex h-screen animate__animated animate__fadeInDown' >
-          <div className="w-1/2 bg-slate-200 flex justify-center items-center text-center" >
+          <div className="w-1/2 bg-slate-200 flex flex-col justify-center items-center text-center" >
+          <img src={LastCall} alt='logo' className='h-60 w-60'/>
+          <h1 className='text-3xl font-semibold mb-4'>Register</h1>
           <div className="w-[30rem] p-4 ">
             <Form onSubmit={e => submitRegistration(e)}>
               <Form.Group className=" text-left mb-3" controlId="formBasicEmail">
@@ -159,7 +161,7 @@ setTimeout(() => {
                 <Form.Control className="" type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
               </Form.Group>
               <p className=' text-red-600 hidden mb-2' id='errorMessage'> Please enter all credentials. </p>
-              <button className="" type="submit">
+              <button className="w-[27rem] font-medium border-slate-950 border-1 rounded-md pt-2 pb-2 " type="submit">
                 Register
               </button>
             </Form>
@@ -168,7 +170,7 @@ setTimeout(() => {
 
           <div className='bg-custom2 flex-1 w-1/2 flex justify-center items-center text-center animate__animated animate__fadeInDownBig'>
             <div className='bg-no-repeat bg-blob-image bg-center bg-size h-[41rem] w-full flex flex-col justify-center items-center'>
-              <h1 className='text-4xl text-sky-50 font-semibold'>Welcome to LastCall !</h1>
+              <h1 className='text-4xl text-sky-50 font-semibold'>Welcome to Last-Call !</h1>
               <p className='text-sky-50 mt-4 text-xl'>
                 Log in to streamline inventory, track sales, and optimize staff performance. <br/>
                 Manage your bar effortlessly with our user-friendly tools. <br/>
@@ -179,7 +181,9 @@ setTimeout(() => {
         </div>      
       ) : (
         <div className='flex h-screen animate__animated animate__fadeInDown'>
-          <div className='w-1/2 bg-slate-200 flex justify-center items-center text-center'>
+          <div className='w-1/2 bg-slate-200 flex flex-col justify-center items-center text-center'>
+            <img src={LastCall} alt='logo' className='h-60 w-60'/>
+            <h1 className='text-3xl font-semibold mb-4'>Sign in</h1>
             <div className="w-[30rem] p-4 ">
               <Form onSubmit={e => submitLogin(e)}>
                   <Form.Group className=" text-left mb-10" controlId="formBasicEmail">
@@ -192,7 +196,7 @@ setTimeout(() => {
                   </Form.Group>
                   <p className=' text-red-600 hidden mb-2' id='errorMessage'> Please enter both email and password. </p>
                   <p className=' text-red-600 hidden mb-2' id='errorMessage2'> Please check your credentials. </p>
-                  <button className="" type="submit">
+                  <button className="w-[27rem] font-medium border-slate-950 border-1 rounded-md pt-2 pb-2 " type="submit">
                     Login
                   </button>
                 </Form>
@@ -201,7 +205,7 @@ setTimeout(() => {
           
           <div className='bg-custom2 flex-1 w-1/2 flex justify-center items-center text-center animate__animated animate__fadeInDownBig'>
             <div className='bg-no-repeat bg-blob-image bg-center bg-size h-[41rem] w-full flex flex-col justify-center items-center'>
-              <h1 className='text-4xl text-sky-50 font-semibold'>Welcome to LastCall !</h1>
+              <h1 className='text-4xl text-sky-50 font-semibold'>Welcome to Last-Call !</h1>
               <p className='text-sky-50 mt-4 text-xl'>
                 Log in to streamline inventory, track sales, and optimize staff performance. <br/>
                 Manage your bar effortlessly with our user-friendly tools. <br/>
