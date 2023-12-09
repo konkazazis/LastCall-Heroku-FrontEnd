@@ -123,7 +123,7 @@ setTimeout(() => {
     ) : (
     <div className='grid bg-cover '>
       
-      <Navbar className='h-12'>
+      <Navbar className='h-12 bg-slate-300'>
         <Container>
           <Navbar.Toggle />
           <Navbar.Collapse className=" justify-between animate__animated animate__fadeIn">
@@ -165,11 +165,15 @@ setTimeout(() => {
             </Form>
           </div>
           </div> 
+
           <div className='bg-custom2 flex-1 w-1/2 flex justify-center items-center text-center animate__animated animate__fadeInDownBig'>
             <div className='bg-no-repeat bg-blob-image bg-center bg-size h-[41rem] w-full flex flex-col justify-center items-center'>
-              <h1 className='text-4xl text-sky-50 font-semibold'>Your personal Expense-Tracker</h1>
-              <p className='text-sky-50 mt-4'>Take control of your finances with Your Personal Expense Tracker. <br/>
-                Track, budget, and manage expenses effortlessly.<br/> Sign in or sign up now to get started!</p>
+              <h1 className='text-4xl text-sky-50 font-semibold'>Welcome to LastCall !</h1>
+              <p className='text-sky-50 mt-4 text-xl'>
+                Log in to streamline inventory, track sales, and optimize staff performance. <br/>
+                Manage your bar effortlessly with our user-friendly tools. <br/>
+                Enter your credentials to access efficient bar management.
+              </p>
             </div>
           </div>
         </div>      
@@ -197,9 +201,12 @@ setTimeout(() => {
           
           <div className='bg-custom2 flex-1 w-1/2 flex justify-center items-center text-center animate__animated animate__fadeInDownBig'>
             <div className='bg-no-repeat bg-blob-image bg-center bg-size h-[41rem] w-full flex flex-col justify-center items-center'>
-              <h1 className='text-4xl text-sky-50 font-semibold'>Your personal Expense-Tracker</h1>
-              <p className='text-sky-50 mt-4'>Take control of your finances with Your Personal Expense Tracker. <br/>
-                Track, budget, and manage expenses effortlessly.<br/> Sign in or sign up now to get started!</p>
+              <h1 className='text-4xl text-sky-50 font-semibold'>Welcome to LastCall !</h1>
+              <p className='text-sky-50 mt-4 text-xl'>
+                Log in to streamline inventory, track sales, and optimize staff performance. <br/>
+                Manage your bar effortlessly with our user-friendly tools. <br/>
+                Enter your credentials to access efficient bar management.
+              </p>
             </div>
           </div>
 
