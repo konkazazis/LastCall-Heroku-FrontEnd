@@ -115,15 +115,15 @@ setTimeout(() => {
     );
   }
   return (
-    <div className='bg-custom2'>
+    <div>
       {loading ? (
         <div className='flex justify-center items-center h-screen'>
           <LoadingSpinner />
         </div>
     ) : (
-    <div className='grid h-screen bg-cover '>
+    <div className='grid bg-cover '>
       
-      <Navbar>
+      <Navbar className='h-12'>
         <Container>
           <Navbar.Toggle />
           <Navbar.Collapse className=" justify-between animate__animated animate__fadeIn">
@@ -142,56 +142,60 @@ setTimeout(() => {
 
     {
       registrationToggle ? (
-        <div className='flex ml-12 animate__animated animate__fadeInDown' >
-          <div className="w-[20rem] h-[25rem] shadow-lg border-2 mt-32 bg-slate-100 p-4 ml-6 mb-6" >
+        <div className='flex h-screen animate__animated animate__fadeInDown' >
+          <div className="w-1/2 bg-slate-200 flex justify-center items-center text-center" >
+          <div className="w-[30rem] p-4 ">
             <Form onSubmit={e => submitRegistration(e)}>
-              <Form.Group className="grid mb-3" controlId="formBasicEmail">
+              <Form.Group className=" text-left mb-3" controlId="formBasicEmail">
                 <Form.Label className="form-label text-black">Email address</Form.Label>
-                <Form.Control className="placeholder-slate-700 placeholder-opacity-25 bg-transparent text-black custom-input-reset rounded-none border-b-2 border-t-0 border-l-0 border-r-0 border-black focus:border-black !important" type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} />
+                <Form.Control className="" type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicUsername">
+              <Form.Group className=" text-left mb-3" controlId="formBasicUsername">
                 <Form.Label className="form-label text-black">Username</Form.Label>
-                <Form.Control className="placeholder-slate-700 placeholder-opacity-25 bg-transparent text-black custom-input-reset rounded-none border-b-2 border-t-0 border-l-0 border-r-0 border-black focus:border-black !important" type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
+                <Form.Control className="" type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className=" text-left mb-3" controlId="formBasicPassword">
                 <Form.Label className="form-label text-black">Password</Form.Label>
-                <Form.Control className="placeholder-slate-700 placeholder-opacity-25 bg-transparent text-black custom-input-reset rounded-none border-b-2 border-t-0 border-l-0 border-r-0 border-black focus:border-black !important" type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+                <Form.Control className="" type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
               </Form.Group>
               <p className=' text-red-600 hidden mb-2' id='errorMessage'> Please enter all credentials. </p>
-              <button className="bg-transparent border-2 border-black text-black rounded-lg p-2" type="submit">
+              <button className="" type="submit">
                 Register
               </button>
             </Form>
+          </div>
           </div> 
-          <div className='flex-1 flex justify-center items-center text-center animate__animated animate__fadeInDownBig'>
+          <div className='bg-custom2 flex-1 w-1/2 flex justify-center items-center text-center animate__animated animate__fadeInDownBig'>
             <div className='bg-no-repeat bg-blob-image bg-center bg-size h-[41rem] w-full flex flex-col justify-center items-center'>
               <h1 className='text-4xl text-sky-50 font-semibold'>Your personal Expense-Tracker</h1>
               <p className='text-sky-50 mt-4'>Take control of your finances with Your Personal Expense Tracker. <br/>
                 Track, budget, and manage expenses effortlessly.<br/> Sign in or sign up now to get started!</p>
             </div>
           </div>
-
         </div>      
       ) : (
-        <div className='flex ml-12 animate__animated animate__fadeInDown'>
-          <div className="w-[20rem] h-[25rem] shadow-lg border-2 mt-32 bg-slate-100 p-4 ml-6 mb-6">
-          <Form onSubmit={e => submitLogin(e)}>
-              <Form.Group className="grid mb-10" controlId="formBasicEmail">
-                <Form.Label className="form-label text-black">Email address</Form.Label>
-                <Form.Control     className="placeholder-slate-700 placeholder-opacity-25 bg-transparent text-black custom-input-reset rounded-none border-b-2 border-t-0 border-l-0 border-r-0 border-black focus:border-black !important" type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label className="form-label text-black">Password</Form.Label>
-                <Form.Control className="placeholder-slate-700 placeholder-opacity-25 bg-transparent text-black custom-input-reset rounded-none border-b-2 border-t-0 border-l-0 border-r-0 border-black focus:border-black !important" type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-              </Form.Group>
-              <p className=' text-red-600 hidden mb-2' id='errorMessage'> Please enter both email and password. </p>
-              <p className=' text-red-600 hidden mb-2' id='errorMessage2'> Please check your credentials. </p>
-              <button className="bg-transparent border-2 border-black text-black rounded-lg p-2" type="submit">
-                Login
-              </button>
-            </Form>
+        <div className='flex h-screen animate__animated animate__fadeInDown'>
+          <div className='w-1/2 bg-slate-200 flex justify-center items-center text-center'>
+            <div className="w-[30rem] p-4 ">
+              <Form onSubmit={e => submitLogin(e)}>
+                  <Form.Group className=" text-left mb-10" controlId="formBasicEmail">
+                    <Form.Label className="form-label text-black">Email address</Form.Label>
+                    <Form.Control className="" type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} />
+                  </Form.Group>
+                  <Form.Group className=" text-left mb-3" controlId="formBasicPassword">
+                    <Form.Label className="form-label text-black">Password</Form.Label>
+                    <Form.Control className="" type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+                  </Form.Group>
+                  <p className=' text-red-600 hidden mb-2' id='errorMessage'> Please enter both email and password. </p>
+                  <p className=' text-red-600 hidden mb-2' id='errorMessage2'> Please check your credentials. </p>
+                  <button className="" type="submit">
+                    Login
+                  </button>
+                </Form>
+            </div>
           </div>
-          <div className='flex-1 flex justify-center items-center text-center animate__animated animate__fadeInDownBig'>
+          
+          <div className='bg-custom2 flex-1 w-1/2 flex justify-center items-center text-center animate__animated animate__fadeInDownBig'>
             <div className='bg-no-repeat bg-blob-image bg-center bg-size h-[41rem] w-full flex flex-col justify-center items-center'>
               <h1 className='text-4xl text-sky-50 font-semibold'>Your personal Expense-Tracker</h1>
               <p className='text-sky-50 mt-4'>Take control of your finances with Your Personal Expense Tracker. <br/>
