@@ -3,6 +3,11 @@ import Form from 'react-bootstrap/Form';
 import LastCall from '../../assets/LastCall-removebg.png';
 import axios from 'axios';
 
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+axios.defaults.withCredentials = true;
+
 function LoginComp({ setCurrentUser }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -11,7 +16,7 @@ function LoginComp({ setCurrentUser }) {
         var element = document.getElementById(elementId);
         element.style.display = isVisible ? "block" : "none";
     }
-
+    
     function submitLogin(e) {
         e.preventDefault();
         axios.post(

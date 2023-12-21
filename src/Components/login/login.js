@@ -8,7 +8,7 @@ import App from '../../App';
 import LoginComp from './loginComp';
 import RegisterComp from '../register/registerComp';
 
-axios.defaults.baseURL = 'https://lc-backend-django-2e9aca49847c.herokuapp.com/';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 axios.defaults.withCredentials = true;
