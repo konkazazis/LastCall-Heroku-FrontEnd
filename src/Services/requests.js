@@ -7,7 +7,7 @@ axios.defaults.withCredentials = true;
 
 // Function to send a GET request to fetch expenses
 export const getExpenses = () => {
-  return axios.get(`${API_URL}/expense-get/`)
+  return axios.get(`${API_URL}expense-get/`)
     .then((response) => {
       return response.data;
     })
@@ -18,7 +18,7 @@ export const getExpenses = () => {
 
 // Function to send a POST request to add an expense
 export const addExpense = (expenseData) => {
-  return axios.post(`${API_URL}/expense-post/`, expenseData)
+  return axios.post(`${API_URL}expense-post/`, expenseData)
     .then((response) => {
       return response.data;
     })
@@ -29,7 +29,7 @@ export const addExpense = (expenseData) => {
 
 // Function to send a DELETE request to delete an expense by ID
 export const deleteExpense = (expenseId) => {
-  return axios.delete(`${API_URL}/expense-delete/${expenseId}`)
+  return axios.delete(`${API_URL}expense-delete/${expenseId}`)
     .then((response) => {
       return response.data;
     })
