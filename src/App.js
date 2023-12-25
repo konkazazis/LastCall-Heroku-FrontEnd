@@ -111,9 +111,8 @@ function ExpenseTracker() {
   });
 
   return (
-    <div className='animate__animated animate__fadeIn m-2 bg-custom1 rounded-lg shadow-md'>
+    <div className='bg-white animate__animated animate__fadeIn m-2'>
       <div className='ml-4 pt-4 pb-2 flex justify-between'>
-
         <div>
           {/* <FontAwesomeIcon icon={faGauge} className='w-4 h-4 mr-2'/> */}
           <h1 className='text-lg font-thin text-left inline-block'>LastCall | Bar Management</h1>
@@ -124,14 +123,14 @@ function ExpenseTracker() {
 
       </div>
       <div className="flex pb-4">
-        <div className=" w-1/6 mr-4 ml-4 rounded-lg shadow-xl">
-          <div className="animate__animated animate__fadeIn rounded-lg h-[100%] shadow-xl bg-slate-100 border-custom3 border-4">
-            <div className=' flex m-4 justify-start items-center rounded-lg '>
+        <div className=" w-1/6 mr-4 ml-4 shadow-xl">
+          <div className="animate__animated animate__fadeIn  h-[100%] shadow-xl bg-slate-100 border-custom3 border-4">
+            <div className=' flex m-4 justify-start items-center '>
               <img src={'../mountain.jpg'} alt="Logo" className='w-[50px] h-[50px] rounded-full' />
               <p className='ml-4 text-lg font-thin'>{userInfo.username}</p>
             </div>
             <div className='grid place-items-center'>
-              <hr className='mb-8 rounded-lg w-[12rem] h-[0.1rem] bg-slate-300'/>
+              <hr className='mb-8 w-[12rem] h-[0.1rem] bg-slate-300'/>
               <div className='grid place-items-start mt-2 w-[12rem]'>
                     <div     className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
                           onClick={() => changeComponent(<Home/>)}><FontAwesomeIcon icon={faHome} className='mr-4 w-4 h-4' /> Home</div>
@@ -159,7 +158,7 @@ function ExpenseTracker() {
                     </button>
               </div>
             </div>  
-            <hr className='mb-8 mt-8 rounded-lg w-[12rem] h-[0.1rem]  bg-slate-400'/>
+            <hr className='mb-8 mt-8 w-[12rem] h-[0.1rem]  bg-slate-400'/>
           </div>  
             
           <div className='grid place-items-center mb-4'>
@@ -177,7 +176,7 @@ function ExpenseTracker() {
         </div> 
       </div>
 
-      <div className="w-5/6  flex mr-4 rounded-lg shadow-xl bg-slate-100 border-custom3 border-4">
+      <div className="w-5/6  flex mr-4 shadow-xl bg-slate-100 border-custom3 border-4">
         <div className='w-full'>
           <div className='h-[26rem]'>
             {component}
