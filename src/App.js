@@ -5,17 +5,12 @@ import { getExpenses, deleteExpense as apiDeleteExpense, addExpense as apiAddExp
 import { faFacebook, faTwitter, faInstagram, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AddExpenses from './Components/add-expenses';
-import Graph from './Components/graphs';
-import History from './Components/history';
 import Widgets from './widgets';
 import Profile from './Components/profile';
 import Settings from './Components/settings';
 import Reports from './Components/reports';
 import Analysis from './Components/analysis';
 import axios from 'axios';
-import Cards from './Components/cards';
-import Bills from './Components/bills-payments';
 import Home from './Components/home';
 import Stock from './Components/stock';
 import Chat from './Components/chat';
@@ -25,9 +20,8 @@ import BusinessCards from './Components/businessCards';
 
 function ExpenseTracker() {
   const [expenses, setExpenses] = useState([]);
-  const [isAddExpenseOpen, setIsAddExpenseOpen] = useState(false);
   const [userInfo, setUserInfo] = useState([]);
-  const [component, setComponent] = useState(<Graph expenses={expenses} />);
+  const [component, setComponent] = useState();
   
   // Function to fetch expenses
   const fetchExpenses = () => {
@@ -46,6 +40,7 @@ function ExpenseTracker() {
     axios.get("/user")
     .then(function(res) {
       setUserInfo(res.data.user);
+      setComponent(<Home userInfo={res.data.user} />);
     })
     .catch(function(error) {
       console.log(error);
@@ -61,38 +56,6 @@ function ExpenseTracker() {
       window.location.href = '/';
     });
   }
-
-  // Function to delete an expense
-  const deleteExpenseItem = (expenseId) => {
-    apiDeleteExpense(expenseId)
-      .then(() => {
-        // If the deletion is successful, update the expenses state to remove the deleted expense
-        setExpenses((prevExpenses) =>
-          prevExpenses.filter((expense) => expense.id !== expenseId)
-        );
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.error('Error deleting expense:', error);
-      });
-  };
-
-  // Function to add a new expense
-  const addExpenseItem = (newExpenseData) => {
-    apiAddExpense(newExpenseData)
-      .then((newExpense) => {
-        // If the addition is successful, update the expenses state to include the new expense
-        setExpenses((prevExpenses) => [...prevExpenses, newExpense]);
-        setIsAddExpenseOpen(false);
-      })
-      .catch((error) => {
-        console.error('Error adding expense:', error);
-      });
-  };
-
-  const toggleAddExpense = () => {
-    setIsAddExpenseOpen(!isAddExpenseOpen);
-  };
 
   const changeComponent = (component) => {
     setComponent(component);
@@ -133,11 +96,11 @@ function ExpenseTracker() {
               <hr className='mb-8 w-[12rem] h-[0.1rem] bg-slate-300'/>
               <div className='grid place-items-start mt-2 w-[12rem]'>
                     <div     className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
-                          onClick={() => changeComponent(<Home/>)}><FontAwesomeIcon icon={faHome} className='mr-4 w-4 h-4' /> Home</div>
+                          onClick={() => changeComponent(<Home userInfo={userInfo} />)}><FontAwesomeIcon icon={faHome} className='mr-4 w-4 h-4' /> Home</div>
                     <div     className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
-                          onClick={() => changeComponent(<Chat/>)}><FontAwesomeIcon icon={faCommenting} className='mr-4 w-4 h-4' /> Chat</div>
+                          onClick={() => changeComponent(<Chat userInfo={userInfo}/>)}><FontAwesomeIcon icon={faCommenting} className='mr-4 w-4 h-4' /> Chat</div>
                     <div     className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
-                          onClick={() => changeComponent(<Stock/>)}><FontAwesomeIcon icon={faBoxesStacked} className='mr-4 w-4 h-4' /> Stock</div>
+                          onClick={() => changeComponent(<Stock />)}><FontAwesomeIcon icon={faBoxesStacked} className='mr-4 w-4 h-4' /> Stock</div>
                     <div     className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
                           onClick={() => changeComponent(<Invoices/>)}><FontAwesomeIcon icon={faFileInvoiceDollar} className='mr-4 w-4 h-4' /> Invoices</div>
                     <div     className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
@@ -178,7 +141,7 @@ function ExpenseTracker() {
 
       <div className="w-5/6  flex mr-4 shadow-xl bg-slate-100 border-custom3 border-4">
         <div className='w-full'>
-          <div className='h-[26rem]'>
+          <div className='h-[50rem]'>
             {component}
           </div>
           {/* <div className='h-[26rem] mb-2'>
