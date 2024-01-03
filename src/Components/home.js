@@ -11,8 +11,8 @@ function Home({userInfo}) {
       </div>
       <div className='flex h-1/3 content-between'>
         <div className='bg-white w-1/3 mr-2'>Schedule</div>
-        <div className='bg-white w-1/3 mr-2'>Schedule</div>
-        <div className='bg-white w-1/3'>Schedule</div>
+        <div className='bg-white w-1/3 mr-2'>Strikes</div>
+        <div className='bg-white w-1/3'>News</div>
       </div>
     </div>
   )

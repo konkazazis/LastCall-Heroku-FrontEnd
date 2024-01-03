@@ -81,17 +81,34 @@ function Stock() {
     };
   
     // Function to add a new expense
-    const addExpenseItem = (newExpenseData) => {
-      apiAddExpense(newExpenseData)
-        .then((newExpense) => {
-          // If the addition is successful, update the expenses state to include the new expense
-          setExpenses((prevExpenses) => [...prevExpenses, newExpense]);
-          setIsAddExpenseOpen(false);
-        })
+    // const addExpenseItem = (newExpenseData) => {
+    //   apiAddExpense(newExpenseData)
+    //     .then((newExpense) => {
+    //       // If the addition is successful, update the expenses state to include the new expense
+    //       setExpenses((prevExpenses) => [...prevExpenses, newExpense]);
+    //       setIsAddExpenseOpen(false);
+    //     })
+    //     .catch((error) => {
+    //       console.error('Error adding expense:', error);
+    //     });
+    // };
+    const API_URL = process.env.REACT_APP_API_URL; // Update with your API URL
+
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+    axios.defaults.withCredentials = true;
+    const addExpenseItem = (expenseData) => {
+      return axios.post(`${API_URL}api/expense-post/`, expenseData)
+      .then((newExpense) => {
+              // If the addition is successful, update the expenses state to include the new expense
+              setExpenses((prevExpenses) => [...prevExpenses, newExpense]);
+              setIsAddExpenseOpen(false);
+            })
         .catch((error) => {
-          console.error('Error adding expense:', error);
+             console.error('Error adding expense:', error);
         });
     };
+    
   
     const closeModal = () => {
       setIsModalOpen(false);
