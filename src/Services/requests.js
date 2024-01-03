@@ -18,7 +18,7 @@ export const getExpenses = () => {
 
 // Function to send a POST request to add an expense
 export const addExpense = (expenseData) => {
-  return axios.post(`${API_URL}api/expense-post/`, expenseData, { headers })
+  return axios.post(`${API_URL}api/expense-post/`, expenseData)
     .then((response) => {
       return response.data;
     })
