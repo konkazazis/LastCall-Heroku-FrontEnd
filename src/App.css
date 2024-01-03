@@ -27,4 +27,9 @@
     border-style: initial;
     box-shadow: initial;
   }
+
+.react-calendar {
+  width: 100% !important;
+  border: none !important;
+}
   

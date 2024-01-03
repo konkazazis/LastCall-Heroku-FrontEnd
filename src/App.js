@@ -141,7 +141,7 @@ function ExpenseTracker() {
 
       <div className="w-5/6  flex mr-4 shadow-xl bg-slate-100 border-custom3 border-4">
         <div className='w-full'>
-          <div className='h-[50rem]'>
+          <div className='h-[52rem]'>
             {component}
           </div>
           {/* <div className='h-[26rem] mb-2'>
