@@ -32,8 +32,8 @@ function Home({userInfo}) {
 
   useEffect(() => {
     const CovidDataPerDay =
-      "http://api.mediastack.com/v1/news?access_key=b6dfc1353be84589490283b822281882";
-      fetchNewsData(CovidDataPerDay);
+      "https://api.thenewsapi.com/v1/news/all?language=en&api_token=UECGzUadiCBYT3YzjqyPJcehE4RRVy4buJA0PQGE";
+      //fetchNewsData(CovidDataPerDay);
   }, []);
   
   return (
@@ -54,7 +54,7 @@ function Home({userInfo}) {
         </div>
         <div className='bg-white w-1/3 mr-2'>Strikes</div>
         <div className='bg-white w-1/3 overflow-scroll'>
-          {data.data.length > 0  ? data.data.slice(0, 5).map((newsItem, index) => (
+          {data.data.length > 0  ? data.data.slice(0, 3).map((newsItem, index) => (
           <li className='list-none p-4 flex items-center justify-between' key={index}>
             <a href={newsItem.url} className='flex items-center'>
               <div>
