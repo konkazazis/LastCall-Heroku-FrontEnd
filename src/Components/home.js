@@ -33,7 +33,7 @@ function Home({userInfo}) {
   useEffect(() => {
     const CovidDataPerDay =
       "https://api.thenewsapi.com/v1/news/all?language=en&api_token=UECGzUadiCBYT3YzjqyPJcehE4RRVy4buJA0PQGE";
-      //fetchNewsData(CovidDataPerDay);
+      fetchNewsData(CovidDataPerDay);
   }, []);
   
   return (
