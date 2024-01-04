@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 const API_URL = process.env.REACT_APP_API_URL; // Update with your API URL
 
 // Function to send a GET request to fetch expenses
@@ -65,7 +66,7 @@ export const deleteExpense = (expenseId) => {
 
 // Function to get CSRF token from cookies (add this function if not already implemented)
 function getCookie(name) {
-  const cookieString = document.cookie;
+  const cookieString = Cookies.get(name);
   const cookies = cookieString ? cookieString.split('; ') : [];
 
   for (const cookie of cookies) {
@@ -74,6 +75,6 @@ function getCookie(name) {
       return cookieValue || '';
     }
   }
-
+  console.log(cookieString);
   return ''; // Return an empty string if the cookie is not found
 }
