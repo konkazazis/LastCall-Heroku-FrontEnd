@@ -1,20 +1,15 @@
-import Cookies from 'js-cookie';
+import axios from 'axios';
 const API_URL = process.env.REACT_APP_API_URL; // Update with your API URL
+
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+axios.defaults.withCredentials = true;
 
 // Function to send a GET request to fetch expenses
 export const getExpenses = () => {
-  return fetch(`${API_URL}api/expense-get/`, { 
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRFToken': getCookie('csrftoken'), // Implement a function to get the CSRF token from cookies
-    },
-  })
+  return axios.get(`${API_URL}api/expense-get/`)
     .then((response) => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
+      return response.data;
     })
     .catch((error) => {
       throw error;
@@ -23,20 +18,9 @@ export const getExpenses = () => {
 
 // Function to send a POST request to add an expense
 export const addExpense = (expenseData) => {
-  return fetch(`${API_URL}api/expense-post/`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRFToken': getCookie('csrftoken'), // Implement a function to get the CSRF token from cookies
-    },
-    credentials: 'include',
-    body: JSON.stringify(expenseData),
-  })
+  return axios.post(`${API_URL}api/expense-post/`, expenseData)
     .then((response) => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
+      return response.data;
     })
     .catch((error) => {
       throw error;
@@ -45,36 +29,16 @@ export const addExpense = (expenseData) => {
 
 // Function to send a DELETE request to delete an expense by ID
 export const deleteExpense = (expenseId) => {
-  return fetch(`${API_URL}api/expense-delete/${expenseId}`, {
-    method: 'DELETE',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRFToken': getCookie('csrftoken'), // Implement a function to get the CSRF token from cookies
-    },
-  })
+  return axios.delete(`${API_URL}api/expense-delete/${expenseId}`)
     .then((response) => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
+      return response.data;
     })
     .catch((error) => {
       throw error;
-    });
+      });
 };
 
-// Function to get CSRF token from cookies (add this function if not already implemented)
-function getCookie(name) {
-  const cookieString = Cookies.get(name);
-  const cookies = cookieString ? cookieString.split('; ') : [];
 
-  for (const cookie of cookies) {
-    const [cookieName, cookieValue] = cookie.split('=');
-    if (cookieName === name) {
-      return cookieValue || '';
-    }
-  }
-  console.log(cookieString);
-  return ''; // Return an empty string if the cookie is not found
-}
+
+
+
