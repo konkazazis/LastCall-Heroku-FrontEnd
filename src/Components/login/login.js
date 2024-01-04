@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import LoadingSpinner from '../loading-spinner';
+import DotLoader from '../loading-spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.css';
 import 'animate.css';
@@ -17,7 +17,6 @@ function LogIn() {
   const [currentUser, setCurrentUser] = useState();
   const [registrationToggle, setRegistrationToggle] = useState(false);
   const [loading, setLoading] = useState(true);
-
   // Check user authentication on component mount
   useEffect(() => {
     axios.get("/user")
@@ -48,7 +47,7 @@ function LogIn() {
     <div>
       {loading ? (
         <div className='flex justify-center items-center h-screen'>
-          <LoadingSpinner />
+          <DotLoader/>
         </div>
       ) : (
         <div className='grid bg-cover '>

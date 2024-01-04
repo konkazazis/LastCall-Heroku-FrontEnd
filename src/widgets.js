@@ -81,7 +81,7 @@ export default function Widgets() {
   return (
     <div>
       <div>
-        <div className="animate__animated animate__fadeIn inline mr-4 p-[0.1rem] pl-2 pr-2 font-light text-base bg-slate-50 border-custom3 border-4">
+        <div className="animate__animated animate__fadeIn inline mr-4 p-[0.1rem] pl-2 pr-2 font-light text-base bg-white border-custom3 border-4">
             {data.daily && data.daily.time && data.daily.time[0] ? (
               <>
                 {formatDate(data.daily.time[0])} | {data.daily.temperature_2m_min[0]}°C - {data.daily.temperature_2m_max[0]}°C  
@@ -91,7 +91,7 @@ export default function Widgets() {
               <p>Loading...</p>
             )}
         </div>
-        <div className="animate__animated animate__fadeIn inline mr-4 p-[0.1rem] pl-2 pr-2 font-light text-base bg-slate-50 border-custom3 border-4">
+        <div className="animate__animated animate__fadeIn inline mr-4 p-[0.1rem] pl-2 pr-2 font-light text-base bg-white border-custom3 border-4">
           <span>{hours < 10 ? `0${hours}` : hours}</span>:
           <span>{minutes < 10 ? `0${minutes}` : minutes}</span>:
           <span>{seconds < 10 ? `0${seconds}` : seconds}</span>

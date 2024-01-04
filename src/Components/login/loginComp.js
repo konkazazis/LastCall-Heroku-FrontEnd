@@ -1,5 +1,6 @@
 import {React, useState} from 'react'
 import Form from 'react-bootstrap/Form';
+import BeatLoader from '../loading-spinner2';
 import LastCall from '../../assets/LastCall-removebg.png';
 import axios from 'axios';
 
@@ -9,6 +10,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 axios.defaults.withCredentials = true;
 
 function LoginComp({ setCurrentUser }) {
+    const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
@@ -18,6 +20,7 @@ function LoginComp({ setCurrentUser }) {
     }
     
     function submitLogin(e) {
+        setLoading(true);
         e.preventDefault();
         axios.post(
           "/login",
@@ -59,9 +62,15 @@ function LoginComp({ setCurrentUser }) {
                     </Form.Group>
                     <p className=' text-red-600 hidden mb-2' id='errorMessage'> Please enter both email and password. </p>
                     <p className=' text-red-600 hidden mb-2' id='errorMessage2'> Please check your credentials. </p>
-                    <button className="w-[27rem] font-medium border-slate-950 border-1 rounded-md pt-2 pb-2 " type="submit">
-                        Login
-                    </button>
+                    {loading ? (
+                      <button className="w-[27rem] font-medium border-slate-950 border-1 rounded-md pt-2 pb-2 " type="submit">
+                       <BeatLoader />
+                      </button>
+                    ) : (
+                      <button className="w-[27rem] font-medium border-slate-950 border-1 rounded-md pt-2 pb-2 " type="submit">
+                      Login
+                     </button>
+                    )}
                     </Form>
                 </div>
             </div>

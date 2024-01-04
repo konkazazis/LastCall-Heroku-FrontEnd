@@ -33,7 +33,7 @@ function Home({userInfo}) {
   useEffect(() => {
     const CovidDataPerDay =
       "http://api.mediastack.com/v1/news?access_key=77941607c7a6961000816091adbea63e";
-      //fetchNewsData(CovidDataPerDay);
+      fetchNewsData(CovidDataPerDay);
   }, []);
   
   return (
