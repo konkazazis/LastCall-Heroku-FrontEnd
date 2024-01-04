@@ -65,10 +65,15 @@ export const deleteExpense = (expenseId) => {
 
 // Function to get CSRF token from cookies (add this function if not already implemented)
 function getCookie(name) {
-  const cookieValue = document.cookie
-    .split('; ')
-    .find((row) => row.startsWith(name))
-    .split('=')[1];
+  const cookieString = document.cookie;
+  const cookies = cookieString ? cookieString.split('; ') : [];
 
-  return cookieValue || ''; // Return an empty string if the cookie is not found
+  for (const cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.split('=');
+    if (cookieName === name) {
+      return cookieValue || '';
+    }
+  }
+
+  return ''; // Return an empty string if the cookie is not found
 }
