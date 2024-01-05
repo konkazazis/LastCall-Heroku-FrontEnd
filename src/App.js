@@ -74,7 +74,7 @@ function ExpenseTracker() {
 
   return (
     <div className='bg-white animate__animated animate__fadeIn m-2'>
-      <div className='bg-slate-200 rounded-md ml-4 mr-4 mb-2 pt-4 pb-2 flex justify-between'>
+      <div className='bg-slate-100 border-custom3 shadow-md border-2 rounded-md ml-4 mr-4 mb-2 pt-4 pb-2 flex justify-between'>
         <div className='ml-2'>
           <h1 className='text-lg font-thin text-left inline-block'>LastCall | Bar Management</h1>
         </div>
@@ -85,7 +85,7 @@ function ExpenseTracker() {
       </div>
       <div className="flex h-full">
         <div className=" w-1/6 mr-4 ml-4 shadow-xl">
-          <div className="animate__animated animate__fadeIn  h-[100%] shadow-xl bg-slate-100 border-custom3 border-4">
+          <div className="animate__animated animate__fadeIn  h-[100%] shadow-xl rounded-md bg-slate-100 border-custom3 border-2">
             <div className=' flex m-4 justify-start items-center '>
               <img src={'../mountain.jpg'} alt="Logo" className='w-[50px] h-[50px] rounded-full' />
               <p className='ml-4 text-lg font-thin'>{userInfo.username}</p>
@@ -135,12 +135,10 @@ function ExpenseTracker() {
         </div> 
       </div>
 
-      <div className="w-5/6 box-border flex mr-4 shadow-xl bg-slate-100 border-custom3 border-4">
-        <div className='w-full'>
-          <div className='h-full'>
+      <div className="w-5/6 flex mr-4 shadow-xl bg-slate-100 rounded-md border-custom3 border-2">
+          <div className='h-full w-full'>
             {component}
           </div>
-        </div>
       </div>
         
       </div>
