@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoneyBills, faGear, faCreditCard, faUser, faFile, faMagnifyingGlassChart, faChartLine, faHome, faCommenting, faBoxesStacked, faFileInvoiceDollar, faCalendarDays } from '@fortawesome/free-solid-svg-icons';
-import { getExpenses, deleteExpense as apiDeleteExpense, addExpense as apiAddExpense } from './Services/requests'; 
+import { faGear, faCreditCard, faUser, faMagnifyingGlassChart, faHome, faCommenting, faBoxesStacked, faFileInvoiceDollar, faCalendarDays } from '@fortawesome/free-solid-svg-icons';
+import { getExpenses } from './Services/requests'; 
 import { faFacebook, faTwitter, faInstagram, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -46,6 +46,7 @@ function ExpenseTracker() {
     });
   }, []);
 
+  // Logout function
   function submitLogout(e) {
     e.preventDefault();
     axios.post(
@@ -56,12 +57,13 @@ function ExpenseTracker() {
     });
   }
 
+  // Function to set the component to be rendered
   const changeComponent = (component) => {
     setComponent(component);
   }
 
+  // Menu items background color change on click
   const menuItems = document.querySelectorAll('.menu-item');
-
   menuItems.forEach(item => {
     item.addEventListener('click', function() {
       menuItems.forEach(otherItem => {
@@ -74,17 +76,22 @@ function ExpenseTracker() {
 
   return (
     <div className='bg-white animate__animated animate__fadeIn m-2'>
-      <div className='bg-slate-100 border-custom3 shadow-md border-2 rounded-md ml-4 mr-4 mb-2 pt-4 pb-2 flex justify-between'>
+
+      {/* Header */}
+      <div className='bg-slate-100 border-custom3 shadow-md border-2 rounded-md ml-4 mr-4 mb-2 pt-2 pb-2 flex justify-between'>
         <div className='ml-2'>
           <h1 className='text-lg font-thin text-left inline-block'>LastCall | Bar Management</h1>
         </div>
         <div>
           <Widgets />
         </div>
-
       </div>
+
+      {/* Body */}
       <div className="flex h-full">
         <div className=" w-1/6 mr-4 ml-4 shadow-xl">
+
+          {/* Sidebar */}
           <div className="animate__animated animate__fadeIn  h-[100%] shadow-xl rounded-md bg-slate-100 border-custom3 border-2">
             <div className=' flex m-4 justify-start items-center '>
               <img src={'../mountain.jpg'} alt="Logo" className='w-[50px] h-[50px] rounded-full' />
@@ -135,6 +142,7 @@ function ExpenseTracker() {
         </div> 
       </div>
 
+      {/* Main content */}
       <div className="w-5/6 flex mr-4 shadow-xl bg-slate-100 rounded-md border-custom3 border-2">
           <div className='h-full w-full'>
             {component}

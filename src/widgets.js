@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 export default function Widgets() {
-  // --------------------------Digital Clock--------------------------
-  const [time, setTime] = useState(new Date());
+  const [data, setData] = useState({ daily: {} });
 
+  // Digital clock
+  const [time, setTime] = useState(new Date());
   useEffect(() => {
     const intervalId = setInterval(() => {
       setTime(new Date());
@@ -13,13 +14,10 @@ export default function Widgets() {
       clearInterval(intervalId);
     };
   }, []);
-
   const hours = time.getHours();
   const minutes = time.getMinutes();
   const seconds = time.getSeconds();
 
-  // ----------------------------Weather------------------------------
-  const [data, setData] = useState({ daily: {} });
   //Weather messages based on WMO codes in the API response
   const weatherMessages = {
     0: "Clear sky",
@@ -51,7 +49,8 @@ export default function Widgets() {
     96: "Thunderstorm with Hail (Slight)",
     99: "Thunderstorm with Hail (Heavy)",
   };
-  //Reusable fetch function
+
+  //Fetch weather data from API
   const fetchData = async (url) => {
     try {
       const response = await fetch(url);
@@ -68,6 +67,7 @@ export default function Widgets() {
     const weatherDataUrl = "https://api.open-meteo.com/v1/forecast?latitude=37.9838&longitude=23.7278&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,rain_sum&timezone=auto";
     fetchData(weatherDataUrl);
   }, []);
+  
   //Format date from API response
   const formatDate = (dateString) => {
     const date = new Date(dateString);
