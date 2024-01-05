@@ -39,21 +39,21 @@ function Home({userInfo}) {
   return (
     <div className='animate__animated animate__fadeIn h-full'>
       <div className='flex h-2/4 p-2'>
-        <div className='bg-white w-3/4 p-4'>
+        <div className='bg-white rounded-lg w-3/4 p-4'>
           <h1 className='text-5xl'>Hi {userInfo.username} !</h1>
           <h2 className='text-3xl mb-4'>This is your home page</h2>
           <p>There should be some general messages</p>
         </div>
-        <div className='bg-white w-1/4'>
+        <div className='bg-white rounded-lg ml-2 w-1/4'>
           <h1>Online Co-Workers</h1>
         </div> 
       </div>
       <div className='flex h-2/4 p-2 content-between'>
-        <div className='bg-white mr-2 w-1/3'>
+        <div className='bg-white rounded-lg mr-2 w-1/3'>
           <Calendar onChange={onChange} value={date} />
         </div>
-        <div className='bg-white w-1/3 mr-2 h-full'>Strikes</div>
-        <div className='bg-white w-1/3 overflow-scroll h-full'>
+        <div className='bg-white w-1/3 mr-2 rounded-lg h-full'>Strikes</div>
+        <div className='bg-white w-1/3 overflow-scroll rounded-lg h-full'>
           {data.data.length > 0  ? data.data.slice(0, 5).map((newsItem, index) => (
           <li className='list-none p-4 flex items-center justify-between' key={index}>
             <a href={newsItem.url} className='flex items-center'>
