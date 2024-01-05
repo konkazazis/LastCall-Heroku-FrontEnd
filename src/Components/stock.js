@@ -102,7 +102,7 @@ function Stock() {
     <div className='animate__animated animate__fadeIn m-2'>
       <button className='bg-white p-2 rounded-md float-right' onClick={setIsModalOpen}>Set Stock</button>
       <div>
-        <h2 className='text-2xl font-semibold mb-4'>Stock</h2>
+        <h2 className='text-2xl font-bold mb-4'>Stock</h2>
             {expenses.length !== 0 ? (
               <table className='table-auto w-full'>
               <thead>

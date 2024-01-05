@@ -14,7 +14,7 @@ import axios from 'axios';
 import Home from './Components/home';
 import Stock from './Components/stock';
 import Chat from './Components/chat';
-import Invoices from './Components/invoices';
+import Reservations from './Components/reservations';
 import Schedule from './Components/schedule';
 import BusinessCards from './Components/businessCards';
 
@@ -102,15 +102,13 @@ function ExpenseTracker() {
                     <div     className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
                           onClick={() => changeComponent(<Stock />)}><FontAwesomeIcon icon={faBoxesStacked} className='mr-4 w-4 h-4' /> Stock</div>
                     <div     className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
-                          onClick={() => changeComponent(<Invoices/>)}><FontAwesomeIcon icon={faFileInvoiceDollar} className='mr-4 w-4 h-4' /> Invoices</div>
+                          onClick={() => changeComponent(<Reservations/>)}><FontAwesomeIcon icon={faFileInvoiceDollar} className='mr-4 w-4 h-4' />Reservations</div>
                     <div     className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
                           onClick={() => changeComponent(<Schedule/>)}><FontAwesomeIcon icon={faCalendarDays} className='mr-4 w-4 h-4' />Schedule</div>
                     <div     className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
-                          onClick={() => changeComponent(<BusinessCards/>)}><FontAwesomeIcon icon={faCreditCard} className='mr-4 w-4 h-4' />Business Cards</div>
-                    <div     className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
-                          onClick={() => changeComponent(<Reports/>)}><FontAwesomeIcon icon={faFile} className='mr-4 w-4 h-4' />Reports</div>
+                          onClick={() => changeComponent(<BusinessCards/>)}><FontAwesomeIcon icon={faCreditCard} className='mr-4 w-4 h-4' />Menu</div>
                     <div className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
-                          onClick={() => changeComponent(<Analysis/>)}><FontAwesomeIcon icon={faMagnifyingGlassChart} className='mr-4 w-4 h-4' />Analysis </div>
+                          onClick={() => changeComponent(<Analysis/>)}><FontAwesomeIcon icon={faMagnifyingGlassChart} className='mr-4 w-4 h-4' />Revenue Analysis </div>
                     <div     className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
                           onClick={() => changeComponent(<Profile/>)}><FontAwesomeIcon icon={faUser} className='mr-4 w-4 h-4' />Profile</div>
                     <div     className='menu-item w-[12rem] text-m font-normal mb-2 hover:cursor-pointer transition duration-300 ease-in-out transform hover:bg-slate-200 rounded-md p-2'
@@ -144,11 +142,6 @@ function ExpenseTracker() {
           <div className='h-[52rem]'>
             {component}
           </div>
-          {/* <div className='h-[26rem] mb-2'>
-            <History expenses={expenses} onDeleteExpense={deleteExpenseItem} onAddExpense={toggleAddExpense} />
-            {/* Conditionally render the "Add Expense" component */}
-            {/* {isAddExpenseOpen && <AddExpenses closeModal={toggleAddExpense} onAddExpense={addExpenseItem} />}
-          </div> */} 
         </div>
       </div>
         

@@ -5,16 +5,16 @@ import moment from 'moment';
 
 const localizer = momentLocalizer(moment);
 
-function Schedule() {
+function Reservations() {
 
   const events = [
     {
-      title: 'Kostas 18:00-02:00',
+      title: '4ατομα',
       start: new Date(2024, 0, 10, 10, 0),
       end: new Date(2024, 0, 10, 12, 0),
     },
     {
-      title: 'Thylla 18:00-02:00',
+      title: '6ατομα',
       start: new Date(2024, 0, 12, 12, 0),
       end: new Date(2024, 0, 12, 14, 0),
     },
@@ -33,4 +33,4 @@ function Schedule() {
   )
 }
 
-export default Schedule;
+export default Reservations;
