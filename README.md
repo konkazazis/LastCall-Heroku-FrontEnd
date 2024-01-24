@@ -3,10 +3,12 @@
 LastCall - Bar Management Software 
 
 The idea is to create a Web/Mobile application, that helps Bars/Restaurants and small businesses organize their day-to-day tasks.
+This repository hosts the Front-End part written in React. 
 
 ## Project Screen Shot(s)
 
-![vue-screen](https://github.com/konkazazis/cs-courses/assets/52115101/c4a8bb06-c13d-4505-9452-a9647cac2d49)
+![Screenshot 2024-01-24 092944](https://github.com/konkazazis/LastCall-Heroku-FrontEnd/assets/52115101/11e5580b-a274-43e4-92f5-83bb6addfa5d)
+![Screenshot 2024-01-24 092913](https://github.com/konkazazis/LastCall-Heroku-FrontEnd/assets/52115101/59f0236b-e976-481f-ac71-a25076fe6f56)
 
 ## Installation and Setup Instructions
 
@@ -27,5 +29,8 @@ To Start Server:
 
   - React.js
   - Tailwind
+  - Apexcharts
+  - Axios
+  - Animate.css
 
 
