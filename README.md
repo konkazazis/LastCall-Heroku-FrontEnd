@@ -21,6 +21,10 @@ Installation:
 
 `npm install`  
 
+Set .env file :
+  -  create a .env file and set local variables
+        REACT_APP_API_URL = 'http://localhost:8000'
+
 To Start Server:
 
 `npm start`  
